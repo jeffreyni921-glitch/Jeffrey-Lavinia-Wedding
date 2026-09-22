@@ -7,26 +7,47 @@
 <style>
 :root{
   --bg:#faf7f2; --card:#ffffff; --text:#2b2320; --sub:#8a7d6e;
-  --accent:#e07a5f; --accent2:#3d5a80; --line:#ece4da; --shadow:0 2px 10px rgba(0,0,0,.06);
+  --accent:#e07a5f; --accent2:#3d5a80; --gold:#c99a3f; --line:#ece4da; --shadow:0 2px 10px rgba(0,0,0,.06);
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#1c1a17; --card:#2a2621; --text:#efe7dc; --sub:#a89b8b;
-    --accent:#f2a488; --accent2:#7fa1c9; --line:#3a352e; --shadow:0 2px 10px rgba(0,0,0,.3);
+    --accent:#f2a488; --accent2:#7fa1c9; --gold:#e0bc72; --line:#3a352e; --shadow:0 2px 10px rgba(0,0,0,.3);
   }
 }
 :root[data-theme="dark"]{
   --bg:#1c1a17; --card:#2a2621; --text:#efe7dc; --sub:#a89b8b;
-  --accent:#f2a488; --accent2:#7fa1c9; --line:#3a352e; --shadow:0 2px 10px rgba(0,0,0,.3);
+  --accent:#f2a488; --accent2:#7fa1c9; --gold:#e0bc72; --line:#3a352e; --shadow:0 2px 10px rgba(0,0,0,.3);
 }
 *{box-sizing:border-box;}
 html{scroll-padding-top:env(safe-area-inset-top,0px);}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;}
+body{
+  margin:0;color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(224,122,95,.13), transparent 40%),
+    radial-gradient(circle at 92% 8%, rgba(61,90,128,.12), transparent 45%),
+    radial-gradient(circle at 50% 30%, rgba(201,154,63,.08), transparent 55%),
+    radial-gradient(circle at 20% 95%, rgba(74,138,122,.10), transparent 45%),
+    var(--bg);
+  background-attachment:fixed;
+}
 .wrap{max-width:640px;margin:0 auto;padding:20px 16px 60px;}
-h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
+.masthead{text-align:center;margin-bottom:6px;}
+.masthead svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto;}
+h1{font-size:22px;text-align:center;margin:10px 0 2px;font-weight:700;letter-spacing:.5px;}
+.subtitle{text-align:center;font-size:12.5px;color:var(--sub);font-style:italic;letter-spacing:1px;margin-bottom:6px;}
+.flourish{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);font-size:13px;margin:8px 0 24px;}
+.flourish::before,.flourish::after{content:"";flex:1;max-width:110px;height:1px;background:linear-gradient(to right,transparent,var(--line));}
+.flourish::after{background:linear-gradient(to left,transparent,var(--line));}
+.section-divider{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);font-size:15px;margin:28px 0 16px;}
+.section-divider::before,.section-divider::after{content:"";flex:1;height:1px;background:linear-gradient(to right,transparent,var(--line));}
+.section-divider::after{background:linear-gradient(to left,transparent,var(--line));}
 .person-section{margin-bottom:30px;}
-.hero{border-radius:16px;padding:16px 18px;color:#fff;box-shadow:var(--shadow);margin-bottom:12px;}
+.hero{position:relative;overflow:hidden;border-radius:16px;padding:16px 18px;color:#fff;box-shadow:var(--shadow);margin-bottom:12px;}
+.hero::before{content:"🌺";position:absolute;z-index:0;right:-6px;top:-10px;font-size:64px;opacity:.16;transform:rotate(12deg);pointer-events:none;}
+.hero::after{content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(255,255,255,.08),transparent);pointer-events:none;}
+.hero-who,.hero-label,.hero-title,.countdown{position:relative;z-index:1;}
 .hero.g1{background:linear-gradient(135deg,#e07a5f,#3d5a80);}
 .hero.g2{background:linear-gradient(135deg,#d68c45,#8a5a6b);}
 .hero.g3{background:linear-gradient(135deg,#4a8a7a,#3d5a80);}
@@ -50,8 +71,12 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 .map-btn{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12.5px;color:var(--accent2);text-decoration:none;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:6px 12px;}
 .map-btn:active{opacity:.7;}
 .map-embed{width:100%;height:150px;border:0;border-radius:10px;margin-top:10px;display:block;}
-.section-title{font-size:18px;color:var(--text);margin-bottom:14px;}
-.day-card{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;}
+.section-title{position:relative;font-size:18px;color:var(--text);margin-bottom:16px;padding-bottom:8px;}
+.section-title::after{content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;border-radius:3px;background:linear-gradient(to right,var(--gold),transparent);}
+.day-card{position:relative;background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden;}
+.day-card.wedding{background:linear-gradient(155deg,rgba(224,122,95,.14),rgba(201,154,63,.10) 60%,var(--card));border:1px solid rgba(201,154,63,.4);}
+.day-card.wedding::before{content:"💍";position:absolute;right:6px;top:2px;font-size:38px;opacity:.18;transform:rotate(10deg);pointer-events:none;}
+.day-card.wedding .day-date{color:var(--gold);}
 .day-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px;}
 .day-date{font-weight:700;color:var(--accent);font-size:14px;}
 .day-tag{font-size:12px;color:var(--sub);}
@@ -81,14 +106,51 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 .fr-time{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;}
 .fr-city{font-size:10.5px;color:var(--sub);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .fr-arrow{color:var(--sub);font-size:13px;white-space:nowrap;}
+details.flight-fold{margin-bottom:10px;}
+details.flight-fold summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 14px;background:var(--card);border-radius:12px;box-shadow:var(--shadow);}
+details.flight-fold summary::-webkit-details-marker{display:none;}
+.fold-label{font-weight:700;font-size:13.5px;color:var(--text);display:flex;align-items:center;gap:6px;}
+.fold-sub{font-size:11px;color:var(--sub);font-weight:400;}
+.fold-chevron{color:var(--gold);font-size:12px;transition:transform .2s;flex:0 0 auto;}
+details.flight-fold[open] .fold-chevron{transform:rotate(180deg);}
+.fold-body{padding-top:8px;}
 .footer-note{text-align:center;font-size:11px;color:var(--sub);margin-top:30px;}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="masthead">
+    <svg viewBox="0 0 420 86" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" style="stop-color:var(--accent);stop-opacity:.55"/>
+          <stop offset="100%" style="stop-color:var(--accent2);stop-opacity:.35"/>
+        </linearGradient>
+      </defs>
+      <circle cx="210" cy="30" r="16" fill="url(#sky)"/>
+      <path d="M0,62 C60,46 100,74 160,58 C220,42 260,70 320,54 C360,44 390,58 420,50 L420,86 L0,86 Z" style="fill:var(--accent2);opacity:.18"/>
+      <path d="M0,70 C50,58 110,80 170,66 C230,52 270,76 330,62 C370,54 400,64 420,60 L420,86 L0,86 Z" style="fill:var(--accent);opacity:.16"/>
+      <g transform="translate(60,68)" style="opacity:.8">
+        <path d="M0,0 C-14,-8 -26,-4 -30,6 C-18,4 -8,2 0,0Z" style="fill:var(--accent2)"/>
+        <path d="M0,0 C4,-16 -2,-26 -12,-30 C-10,-18 -6,-8 0,0Z" style="fill:var(--accent2)"/>
+        <path d="M0,0 C16,-6 26,0 32,10 C20,6 8,2 0,0Z" style="fill:var(--accent2)"/>
+        <path d="M0,0 C2,-18 12,-26 22,-28 C16,-16 8,-6 0,0Z" style="fill:var(--accent2)"/>
+        <rect x="-2" y="0" width="4" height="18" style="fill:var(--accent2)"/>
+      </g>
+      <g transform="translate(356,72)" style="opacity:.7">
+        <path d="M0,0 C-10,-6 -18,-2 -20,5 C-12,3 -6,1 0,0Z" style="fill:var(--gold)"/>
+        <path d="M0,0 C2,-11 -2,-18 -9,-20 C-7,-12 -4,-5 0,0Z" style="fill:var(--gold)"/>
+        <path d="M0,0 C11,-4 18,1 21,7 C13,4 5,1 0,0Z" style="fill:var(--gold)"/>
+        <rect x="-1.5" y="0" width="3" height="13" style="fill:var(--gold)"/>
+      </g>
+    </svg>
+  </div>
   <h1>🌴 巴厘岛旅行手册</h1>
+  <div class="subtitle">Wedding &amp; Family Trip · Bali · 2026.10.18 – 10.26</div>
+  <div class="flourish">🌺 &nbsp;⋅&nbsp; 💍 &nbsp;⋅&nbsp; 🌺</div>
 
   <!-- ===== 三组人机票（横向切换） ===== -->
+  <div class="section-divider">✈️</div>
   <div class="group-tabs">
     <button class="group-tab active" data-tab="jl">👫 Jeffrey & Lavinia</button>
     <button class="group-tab" data-tab="jp">👴👵 Jeffrey 爸妈</button>
@@ -109,41 +171,51 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="warn">⚠️ 10/18 布里斯班转机仅 1.5 小时(VA382 08:00 到,VA45 09:30 起飞),国际转国际建议预留更充裕时间。</div>
+    <details class="flight-fold">
+      <summary><span class="fold-label">✈️ 去程 <span class="fold-sub">10/18 · Townsville → 巴厘岛</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="warn">⚠️ 10/18 布里斯班转机仅 1.5 小时(VA382 08:00 到,VA45 09:30 起飞),国际转国际建议预留更充裕时间。</div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">VA382</span><span class="fr-date">10/18 周日 · AEST(UTC+10)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">06:05</div><div class="fr-city">Townsville TSV</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">08:00</div><div class="fr-city">Brisbane BNE</div></div>
+          </div>
+        </div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">VA45</span><span class="fr-date">10/18 周日 · AEST→WITA</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">09:30</div><div class="fr-city">Brisbane BNE</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">14:05</div><div class="fr-city">巴厘岛 DPS</div></div>
+          </div>
+        </div>
+      </div>
+    </details>
 
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">VA382</span><span class="fr-date">10/18 周日 · AEST(UTC+10)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">06:05</div><div class="fr-city">Townsville TSV</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">08:00</div><div class="fr-city">Brisbane BNE</div></div>
+    <details class="flight-fold">
+      <summary><span class="fold-label">🏠 返程 <span class="fold-sub">10/25–26 · 巴厘岛 → Townsville</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">VA48</span><span class="fr-date">10/25 周日 · WITA→AEST</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">15:00</div><div class="fr-city">巴厘岛 DPS</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">22:55</div><div class="fr-city">Brisbane BNE</div></div>
+          </div>
+        </div>
+        <div class="warn">🌙 10/25 晚抵达布里斯班后需在当地过夜(次日 06:10 才起飞回 Townsville),记得安排布里斯班酒店。</div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">VA383</span><span class="fr-date">10/26 周一 · AEST(UTC+10)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">06:10</div><div class="fr-city">Brisbane BNE</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">08:15</div><div class="fr-city">Townsville TSV</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">VA45</span><span class="fr-date">10/18 周日 · AEST→WITA</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">09:30</div><div class="fr-city">Brisbane BNE</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">14:05</div><div class="fr-city">巴厘岛 DPS</div></div>
-      </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">VA48</span><span class="fr-date">10/25 周日 · WITA→AEST</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">15:00</div><div class="fr-city">巴厘岛 DPS</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">22:55</div><div class="fr-city">Brisbane BNE</div></div>
-      </div>
-    </div>
-    <div class="warn">🌙 10/25 晚抵达布里斯班后需在当地过夜(次日 06:10 才起飞回 Townsville),记得安排布里斯班酒店。</div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">VA383</span><span class="fr-date">10/26 周一 · AEST(UTC+10)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">06:10</div><div class="fr-city">Brisbane BNE</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">08:15</div><div class="fr-city">Townsville TSV</div></div>
-      </div>
-    </div>
+    </details>
   </div>
 
   <!-- ===== Jeffrey 爸妈 ===== -->
@@ -160,38 +232,49 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ3238</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">13:00</div><div class="fr-city">西安 XIY</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">15:55</div><div class="fr-city">广州 CAN</div></div>
+    <details class="flight-fold">
+      <summary><span class="fold-label">✈️ 去程 <span class="fold-sub">10/18 · 西安 → 巴厘岛</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ3238</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">13:00</div><div class="fr-city">西安 XIY</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">15:55</div><div class="fr-city">广州 CAN</div></div>
+          </div>
+        </div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+    </details>
+
+    <details class="flight-fold">
+      <summary><span class="fold-label">🏠 返程 <span class="fold-sub">10/25 · 巴厘岛 → 西安</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
+          </div>
+        </div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ3237</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">09:05</div><div class="fr-city">广州 CAN</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">11:40</div><div class="fr-city">西安 XIY</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
-      </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ3237</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">09:05</div><div class="fr-city">广州 CAN</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">11:40</div><div class="fr-city">西安 XIY</div></div>
-      </div>
-    </div>
+    </details>
   </div>
 
   <!-- ===== Lavinia 爸妈 ===== -->
@@ -208,42 +291,54 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ3906</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">08:40</div><div class="fr-city">哈尔滨 HRB</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">13:20</div><div class="fr-city">广州 CAN</div></div>
+    <details class="flight-fold">
+      <summary><span class="fold-label">✈️ 去程 <span class="fold-sub">10/18 · 哈尔滨 → 巴厘岛</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ3906</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">08:40</div><div class="fr-city">哈尔滨 HRB</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">13:20</div><div class="fr-city">广州 CAN</div></div>
+          </div>
+        </div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+    </details>
+
+    <details class="flight-fold">
+      <summary><span class="fold-label">🏠 返程 <span class="fold-sub">10/25 · 巴厘岛 → 哈尔滨</span></span><span class="fold-chevron">▾</span></summary>
+      <div class="fold-body">
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
+          </div>
+        </div>
+        <div class="flight-row">
+          <div class="fr-top"><span class="fr-no">CZ3913</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
+          <div class="fr-route">
+            <div class="fr-pt"><div class="fr-time">10:35</div><div class="fr-city">广州 CAN</div></div>
+            <div class="fr-arrow">✈→</div>
+            <div class="fr-pt right"><div class="fr-time">15:00</div><div class="fr-city">哈尔滨 HRB</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
-      </div>
-    </div>
-    <div class="flight-row">
-      <div class="fr-top"><span class="fr-no">CZ3913</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
-      <div class="fr-route">
-        <div class="fr-pt"><div class="fr-time">10:35</div><div class="fr-city">广州 CAN</div></div>
-        <div class="fr-arrow">✈→</div>
-        <div class="fr-pt right"><div class="fr-time">15:00</div><div class="fr-city">哈尔滨 HRB</div></div>
-      </div>
-    </div>
+    </details>
   </div>
 
   <!-- ===== 逐日行程（含每日住宿） ===== -->
   <div class="person-section">
+    <div class="section-divider">🌺</div>
     <div class="section-title">📅 逐日行程</div>
 
     <div class="day-card">
@@ -286,8 +381,8 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="day-card">
-      <div class="day-head"><span class="day-date">10月20日 周二</span><span class="day-tag">婚礼日</span></div>
+    <div class="day-card wedding">
+      <div class="day-head"><span class="day-date">10月20日 周二</span><span class="day-tag">💐 婚礼日 💍</span></div>
       <div class="day-stay">🏨 当晚续住 <b>The Ritz-Carlton, Bali</b></div>
       <div class="day-item">
         <div class="day-time">白天</div>
