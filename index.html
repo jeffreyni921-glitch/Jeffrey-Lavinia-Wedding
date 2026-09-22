@@ -47,6 +47,8 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 .route-city{font-size:12px;color:var(--sub);margin-top:2px;}
 .route-arrow{color:var(--sub);font-size:14px;padding:0 4px;white-space:nowrap;}
 .tz{font-size:11px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);}
+.map-btn{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12.5px;color:var(--accent2);text-decoration:none;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:6px 12px;}
+.map-btn:active{opacity:.7;}
 .warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:10px 0;}
 .footer-note{text-align:center;font-size:11px;color:var(--sub);margin-top:30px;}
 </style>
@@ -214,7 +216,51 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
     </div>
   </div>
 
-  <div class="footer-note">机票信息以实际客票为准 · 页面会随酒店 / 行程更新</div>
+  <!-- ===== 住宿 ===== -->
+  <div class="person-section">
+    <div class="group-title" style="font-size:18px;color:var(--text);margin-bottom:14px;">🏨 住宿安排</div>
+
+    <div class="flight-card">
+      <div class="flight-top"><span class="flight-no">10/18 – 10/19</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
+      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Le Méridien Bali Jimbaran</div>
+      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Bukit Permai, Jimbaran, Kec. Kuta Sel., Badung, Bali 80361<br>📞 +62 361 8466 888</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Le%20Meridien%20Bali%20Jimbaran&query_place_id=ChIJR6qrtoxE0i0RaPwIk5V3VO4" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+    </div>
+
+    <div class="flight-card">
+      <div class="flight-top"><span class="flight-no">10/19 – 10/21</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
+      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">The Ritz-Carlton, Bali</div>
+      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Raya Nusa Dua Selatan, Benoa, Kec. Kuta Sel., Badung, Bali 80361<br>📞 +62 361 849 8988</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The%20Ritz-Carlton%20Bali&query_place_id=ChIJrUAAILlc0i0Rv7gcIT2U_LI" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+    </div>
+
+    <div class="flight-card">
+      <div class="flight-top"><span class="flight-no">10/21 – 10/22</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人 · 3间房</span></div>
+      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">巴厘海滩酒店 Bali Beach Hotel(Sanur)</div>
+      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Hang Tuah, Sanur Kaja, Denpasar Selatan, Bali 80227<br>📞 +62 361 2012000</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bali%20Beach%20Hotel%20Sanur&query_place_id=ChIJX-ANbzdA0i0Riu3SFAnOZkU" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+    </div>
+
+    <div class="warn">🚗 下一站 Novotel 实际位于 Payangan(乌布以北),距机场约 1 小时 45 分车程,并非乌布镇中心——安排乌布市区活动(市场、猴林、稻田)时通勤时间会比预期长。</div>
+
+    <div class="flight-card">
+      <div class="flight-top"><span class="flight-no">10/22 – 10/24</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
+      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Novotel Bali Ubud Resort</div>
+      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Banjar Jl. Raya Semaon, Puhu, Payangan, Gianyar, Bali 80572<br>📞 +62 361 300 3322</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Novotel%20Bali%20Ubud%20Resort&query_place_id=ChIJQ8aFN0kj0i0RX9o0HqqhBt0" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+    </div>
+
+    <div class="warn">✈️ 双方父母 10/24 白天退房后直接前往机场,搭乘当晚 CZ626(10/25 凌晨 00:40 起飞),不再入住下一晚。</div>
+
+    <div class="flight-card">
+      <div class="flight-top"><span class="flight-no">10/24 – 10/25</span><span class="flight-date" style="background:rgba(61,90,128,.15);padding:2px 8px;border-radius:6px;">仅 Jeffrey & Lavinia</span></div>
+      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Fairfield by Marriott Bali Kuta Sunset Road</div>
+      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Merdeka Raya No.VII, Abianbase, Kec. Kuta, Badung, Bali 80361<br>📞 +62 361 2099 100</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Fairfield%20by%20Marriott%20Bali%20Kuta%20Sunset%20Road&query_place_id=ChIJ7WLIJPyF0S0RkTIAUhMOAus" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+    </div>
+  </div>
+
+  <div class="footer-note">机票 / 酒店信息以实际订单为准 · 页面会随行程更新</div>
 </div>
 
 <script>
