@@ -24,16 +24,19 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px);}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;}
 .wrap{max-width:640px;margin:0 auto;padding:20px 16px 60px;}
-h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
-.hero{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:18px;padding:22px 20px;color:#fff;box-shadow:var(--shadow);margin-bottom:24px;}
-.hero-label{font-size:12px;opacity:.85;letter-spacing:1px;}
-.hero-title{font-size:18px;font-weight:600;margin:4px 0 14px;}
-.countdown{display:flex;gap:8px;}
-.cd-box{flex:1;background:rgba(255,255,255,.18);border-radius:10px;padding:10px 4px;text-align:center;}
-.cd-num{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;}
-.cd-unit{font-size:11px;opacity:.85;margin-top:2px;}
-.group{margin-bottom:22px;}
-.group-title{font-size:15px;font-weight:600;margin:0 0 10px;padding-left:2px;color:var(--sub);}
+h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
+.person-section{margin-bottom:30px;}
+.hero{border-radius:16px;padding:16px 18px;color:#fff;box-shadow:var(--shadow);margin-bottom:12px;}
+.hero.g1{background:linear-gradient(135deg,#e07a5f,#3d5a80);}
+.hero.g2{background:linear-gradient(135deg,#d68c45,#8a5a6b);}
+.hero.g3{background:linear-gradient(135deg,#4a8a7a,#3d5a80);}
+.hero-who{font-size:13px;opacity:.9;letter-spacing:1px;font-weight:600;}
+.hero-label{font-size:11px;opacity:.75;margin-top:6px;}
+.hero-title{font-size:15px;font-weight:600;margin:2px 0 12px;}
+.countdown{display:flex;gap:6px;}
+.cd-box{flex:1;background:rgba(255,255,255,.18);border-radius:9px;padding:8px 2px;text-align:center;}
+.cd-num{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;}
+.cd-unit{font-size:10px;opacity:.85;margin-top:2px;}
 .flight-card{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;overflow-x:auto;}
 .flight-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
 .flight-no{font-weight:700;color:var(--accent);font-size:14px;}
@@ -44,7 +47,7 @@ h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
 .route-city{font-size:12px;color:var(--sub);margin-top:2px;}
 .route-arrow{color:var(--sub);font-size:14px;padding:0 4px;white-space:nowrap;}
 .tz{font-size:11px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);}
-.warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:14px 0;}
+.warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:10px 0;}
 .footer-note{text-align:center;font-size:11px;color:var(--sub);margin-top:30px;}
 </style>
 </head>
@@ -52,21 +55,22 @@ h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
 <div class="wrap">
   <h1>🌴 巴厘岛旅行手册</h1>
 
-  <div class="hero">
-    <div class="hero-label">此刻关注 · NEXT UP</div>
-    <div class="hero-title" id="nextTitle">加载中…</div>
-    <div class="countdown" id="countdown">
-      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">天</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">时</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-unit">分</div></div>
-      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-unit">秒</div></div>
+  <!-- ===== Jeffrey & Lavinia ===== -->
+  <div class="person-section">
+    <div class="hero g1">
+      <div class="hero-who">👫 Jeffrey & Lavinia</div>
+      <div class="hero-label">此刻关注 · NEXT UP</div>
+      <div class="hero-title" id="nextTitle-jl">加载中…</div>
+      <div class="countdown">
+        <div class="cd-box"><div class="cd-num" id="jl-d">--</div><div class="cd-unit">天</div></div>
+        <div class="cd-box"><div class="cd-num" id="jl-h">--</div><div class="cd-unit">时</div></div>
+        <div class="cd-box"><div class="cd-num" id="jl-m">--</div><div class="cd-unit">分</div></div>
+        <div class="cd-box"><div class="cd-num" id="jl-s">--</div><div class="cd-unit">秒</div></div>
+      </div>
     </div>
-  </div>
 
-  <div class="warn">⚠️ 10/18 Jeffrey & Lavinia 在布里斯班转机仅 1.5 小时(VA382 08:00 到,VA45 09:30 起飞),国际转国际建议预留更充裕时间,请留意值机与安检节奏。</div>
+    <div class="warn">⚠️ 10/18 布里斯班转机仅 1.5 小时(VA382 08:00 到,VA45 09:30 起飞),国际转国际建议预留更充裕时间。</div>
 
-  <div class="group">
-    <div class="group-title">✈️ Jeffrey & Lavinia</div>
     <div class="flight-card">
       <div class="flight-top"><span class="flight-no">VA382</span><span class="flight-date">10月18日 周日</span></div>
       <div class="route">
@@ -106,8 +110,20 @@ h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
     </div>
   </div>
 
-  <div class="group">
-    <div class="group-title">✈️ Jeffrey 爸妈(西安出发)</div>
+  <!-- ===== Jeffrey 爸妈 ===== -->
+  <div class="person-section">
+    <div class="hero g2">
+      <div class="hero-who">👴👵 Jeffrey 爸妈(西安出发)</div>
+      <div class="hero-label">此刻关注 · NEXT UP</div>
+      <div class="hero-title" id="nextTitle-jp">加载中…</div>
+      <div class="countdown">
+        <div class="cd-box"><div class="cd-num" id="jp-d">--</div><div class="cd-unit">天</div></div>
+        <div class="cd-box"><div class="cd-num" id="jp-h">--</div><div class="cd-unit">时</div></div>
+        <div class="cd-box"><div class="cd-num" id="jp-m">--</div><div class="cd-unit">分</div></div>
+        <div class="cd-box"><div class="cd-num" id="jp-s">--</div><div class="cd-unit">秒</div></div>
+      </div>
+    </div>
+
     <div class="flight-card">
       <div class="flight-top"><span class="flight-no">CZ3238</span><span class="flight-date">10月18日 周日</span></div>
       <div class="route">
@@ -146,8 +162,20 @@ h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
     </div>
   </div>
 
-  <div class="group">
-    <div class="group-title">✈️ Lavinia 爸妈(哈尔滨出发)</div>
+  <!-- ===== Lavinia 爸妈 ===== -->
+  <div class="person-section">
+    <div class="hero g3">
+      <div class="hero-who">👴👵 Lavinia 爸妈(哈尔滨出发)</div>
+      <div class="hero-label">此刻关注 · NEXT UP</div>
+      <div class="hero-title" id="nextTitle-lp">加载中…</div>
+      <div class="countdown">
+        <div class="cd-box"><div class="cd-num" id="lp-d">--</div><div class="cd-unit">天</div></div>
+        <div class="cd-box"><div class="cd-num" id="lp-h">--</div><div class="cd-unit">时</div></div>
+        <div class="cd-box"><div class="cd-num" id="lp-m">--</div><div class="cd-unit">分</div></div>
+        <div class="cd-box"><div class="cd-num" id="lp-s">--</div><div class="cd-unit">秒</div></div>
+      </div>
+    </div>
+
     <div class="flight-card">
       <div class="flight-top"><span class="flight-no">CZ3906</span><span class="flight-date">10月18日 周日</span></div>
       <div class="route">
@@ -190,33 +218,40 @@ h1{font-size:20px;text-align:center;margin:8px 0 20px;font-weight:600;}
 </div>
 
 <script>
-// 所有航班的"出发"事件,带精确时区偏移,用于计算下一程倒计时
-var events = [
-  {name:"VA382 · Jeffrey&Lavinia 起飞 Townsville", t:"2026-10-18T06:05:00+10:00"},
-  {name:"VA45 · Jeffrey&Lavinia 起飞 Brisbane", t:"2026-10-18T09:30:00+10:00"},
-  {name:"CZ3238 · Jeffrey爸妈 起飞西安", t:"2026-10-18T13:00:00+08:00"},
-  {name:"CZ3906 · Lavinia爸妈 起飞哈尔滨", t:"2026-10-18T08:40:00+08:00"},
-  {name:"CZ625 · 双方父母 起飞广州", t:"2026-10-18T18:30:00+08:00"},
-  {name:"CZ626 · 双方父母 起飞巴厘岛回国", t:"2026-10-25T00:40:00+08:00"},
-  {name:"VA48 · Jeffrey&Lavinia 起飞巴厘岛", t:"2026-10-25T15:00:00+08:00"},
-  {name:"CZ3237 · Jeffrey爸妈 起飞广州回西安", t:"2026-10-25T09:05:00+08:00"},
-  {name:"CZ3913 · Lavinia爸妈 起飞广州回哈尔滨", t:"2026-10-25T10:35:00+08:00"},
-  {name:"VA383 · Jeffrey&Lavinia 起飞Brisbane回家", t:"2026-10-26T06:10:00+10:00"}
-];
+var groups = {
+  jl: [
+    {name:"VA382 · 起飞 Townsville", t:"2026-10-18T06:05:00+10:00"},
+    {name:"VA45 · 起飞 Brisbane", t:"2026-10-18T09:30:00+10:00"},
+    {name:"VA48 · 起飞巴厘岛", t:"2026-10-25T15:00:00+08:00"},
+    {name:"VA383 · 起飞Brisbane回家", t:"2026-10-26T06:10:00+10:00"}
+  ],
+  jp: [
+    {name:"CZ3238 · 起飞西安", t:"2026-10-18T13:00:00+08:00"},
+    {name:"CZ625 · 起飞广州", t:"2026-10-18T18:30:00+08:00"},
+    {name:"CZ626 · 起飞巴厘岛回国", t:"2026-10-25T00:40:00+08:00"},
+    {name:"CZ3237 · 起飞广州回西安", t:"2026-10-25T09:05:00+08:00"}
+  ],
+  lp: [
+    {name:"CZ3906 · 起飞哈尔滨", t:"2026-10-18T08:40:00+08:00"},
+    {name:"CZ625 · 起飞广州", t:"2026-10-18T18:30:00+08:00"},
+    {name:"CZ626 · 起飞巴厘岛回国", t:"2026-10-25T00:40:00+08:00"},
+    {name:"CZ3913 · 起飞广州回哈尔滨", t:"2026-10-25T10:35:00+08:00"}
+  ]
+};
 
 function pad(n){return String(n).padStart(2,"0");}
 
-function tick(){
+function tickGroup(key, events){
   var now = new Date();
   var upcoming = events
     .map(function(e){return {name:e.name, date:new Date(e.t)};})
     .filter(function(e){return e.date.getTime() > now.getTime();})
     .sort(function(a,b){return a.date - b.date;});
 
-  var titleEl = document.getElementById("nextTitle");
+  var titleEl = document.getElementById("nextTitle-"+key);
   if(upcoming.length === 0){
     titleEl.textContent = "所有行程已完成 🎉";
-    ["d","h","m","s"].forEach(function(u){document.getElementById("cd-"+u).textContent="0";});
+    ["d","h","m","s"].forEach(function(u){document.getElementById(key+"-"+u).textContent="0";});
     return;
   }
   var next = upcoming[0];
@@ -226,10 +261,14 @@ function tick(){
   var h = Math.floor(diff%86400000/3600000);
   var m = Math.floor(diff%3600000/60000);
   var s = Math.floor(diff%60000/1000);
-  document.getElementById("cd-d").textContent = d;
-  document.getElementById("cd-h").textContent = pad(h);
-  document.getElementById("cd-m").textContent = pad(m);
-  document.getElementById("cd-s").textContent = pad(s);
+  document.getElementById(key+"-d").textContent = d;
+  document.getElementById(key+"-h").textContent = pad(h);
+  document.getElementById(key+"-m").textContent = pad(m);
+  document.getElementById(key+"-s").textContent = pad(s);
+}
+
+function tick(){
+  Object.keys(groups).forEach(function(key){ tickGroup(key, groups[key]); });
 }
 tick();
 setInterval(tick, 1000);
