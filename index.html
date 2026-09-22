@@ -91,6 +91,22 @@ h1{font-size:22px;text-align:center;margin:10px 0 2px;font-weight:700;letter-spa
 .tbd{display:inline-block;font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle;}
 .day-stay{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--accent2);background:rgba(61,90,128,.1);border-radius:8px;padding:5px 10px;margin-bottom:10px;}
 .day-stay b{font-weight:600;color:var(--text);}
+.day-fold{border-top:1px dashed var(--line);}
+.day-fold:first-of-type{border-top:none;}
+.day-fold summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:10px;padding:10px 0;}
+.day-fold summary::-webkit-details-marker{display:none;}
+.day-fold-time{flex:0 0 78px;font-size:12.5px;font-weight:700;color:var(--accent2);white-space:nowrap;padding-top:1px;}
+.day-fold-title{flex:1;min-width:0;font-weight:600;font-size:14px;}
+.day-fold-chevron{flex:0 0 auto;color:var(--gold);font-size:11px;transition:transform .2s;padding-top:2px;}
+.day-fold[open] .day-fold-chevron{transform:rotate(90deg);}
+.day-fold-body{padding:0 0 10px 88px;}
+.day-fold-body .day-note{margin-top:0;}
+.shop-list{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:var(--text);line-height:1.8;}
+.shop-list li{margin-bottom:2px;}
+.map-fold{margin-top:8px;}
+.map-fold summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--accent2);font-weight:600;border:1px solid var(--line);border-radius:8px;padding:6px 12px;}
+.map-fold summary::-webkit-details-marker{display:none;}
+.map-fold .map-embed{margin-top:8px;}
 .warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:10px 0;}
 .group-tabs{display:flex;gap:8px;margin-bottom:12px;}
 .group-tab{flex:1;text-align:center;padding:9px 4px;border-radius:10px;background:var(--card);box-shadow:var(--shadow);font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;border:none;font-family:inherit;line-height:1.35;}
@@ -449,51 +465,171 @@ details.flight-fold[open] .fold-chevron{transform:rotate(180deg);}
       <div class="day-head"><span class="day-date">10月23日 周五</span><span class="day-tag">ATV · 乌布市区 · 按摩 · 晚餐</span></div>
       <div class="day-stay">🏨 当晚续住 <b>Novotel Bali Ubud Resort</b>（Payangan）</div>
       <div class="warn" style="margin:0 0 10px;">🚗 这一天要在 Payangan（ATV）→ 乌布中心（午餐、皇宫）→ Kedewatan（按摩）→ Pengosekan（晚餐）之间来回跑,虽然都在乌布大区、单程多在 15–30 分钟内,但一天串联 5 个点,建议全天包车,预留路上和堵车的余量。</div>
-      <div class="day-item">
-        <div class="day-time">08:30</div>
-        <div class="day-body">
-          <div class="day-loc">Kuber ATV 越野车</div>
-          <div class="day-note">📍 Payangan 一带,活动约 90 分钟,连同往返交通预计 11:00 左右回酒店。</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kuber%20ATV%20Adventure&query_place_id=ChIJvxcpJPoi0i0R7kEHdh7kyLw" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4512625,115.246112&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">08:30</span><span class="day-fold-title">Kuber ATV 越野车</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">📍 Payangan 一带，活动约 90 分钟，连同往返交通预计 11:00 左右返回酒店。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kuber%20ATV%20Adventure&query_place_id=ChIJvxcpJPoi0i0R7kEHdh7kyLw" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4512625,115.246112&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
         </div>
-      </div>
-      <div class="day-item">
-        <div class="day-time">午餐</div>
-        <div class="day-body">
-          <div class="day-loc">Pison Ubud</div>
-          <div class="day-note">📍 Jl. Hanoman No.10X, Ubud · 营业时间 07:00–23:00</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Pison%20Ubud&query_place_id=ChIJZQyFIXo90i0RqjajNVKKz4U" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5182581,115.2636643&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">11:00</span><span class="day-fold-title">回酒店洗漱</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">回酒店后先洗漱、更换衣服，再出发前往乌布市区。</div>
         </div>
-      </div>
-      <div class="day-item">
-        <div class="day-time">下午</div>
-        <div class="day-body">
-          <div class="day-loc">乌布皇宫（Puri Saren Ubud）逛街购物</div>
-          <div class="day-note">📍 Jl. Raya Ubud No.8, Ubud · 免费参观</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Puri%20Saren%20Ubud&query_place_id=ChIJay5BfGE90i0RME7jGwpLp4g" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5067194,115.2627222&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">12:00–13:15</span><span class="day-fold-title">Pison Ubud · 午餐</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">📍 Jl. Hanoman No.10X, Ubud · 营业时间 07:00–23:00，适合作为进入市区购物路线的起点。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Pison%20Ubud&query_place_id=ChIJZQyFIXo90i0RqjajNVKKz4U" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5182581,115.2636643&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
         </div>
-      </div>
-      <div class="day-item">
-        <div class="day-time">下午</div>
-        <div class="day-body">
-          <div class="day-loc">Putri Bali Spa 按摩</div>
-          <div class="day-note">📍 Jl. Raya Sanggingan, Kedewatan, Ubud · 营业时间 09:00–21:00</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Putri%20Bali%20Spa&query_place_id=ChIJs1u4RjE90i0R_-qj_N57rl8" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4917721,115.2533744&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">13:15–14:00</span><span class="day-fold-title">Hanoman 街区 · 第一段购物</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">午餐后先逛距离 Pison 较近的 Hanoman 一带，可连续步行安排：</div>
+          <ol class="shop-list">
+            <li>Fineline by Katahati Store Ubud</li>
+            <li>Filthy Gorgeous Accessories | Ubud</li>
+            <li>Lemongrass Shop</li>
+            <li>Macaca Ubud</li>
+          </ol>
+          <div class="day-note">Fineline 乌布店位于 Jl. Hanoman No.35，Filthy Gorgeous 在 Hanoman 一带也有门店，适合安排在同一段步行路线。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Jl.%20Hanoman%2C%20Ubud" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=Jl.+Hanoman,+Ubud&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
         </div>
-      </div>
-      <div class="day-item">
-        <div class="day-time">晚餐</div>
-        <div class="day-body">
-          <div class="day-loc">Twist Ubud</div>
-          <div class="day-note">📍 Jl. Raya Pengosekan, Ubud · 通常营业至 22:00</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Twist%20Ubud&query_place_id=ChIJM8t_Ve890i0RuXI5pwXjFMY" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5211937,115.2628029&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">14:00–15:00</span><span class="day-fold-title">Ubud Downtown / Gootama 街区购物</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">随后前往乌布市中心和 Gootama 街区：</div>
+          <ol class="shop-list" start="5">
+            <li>Ubud Raw Chocolate & Cacao — Downtown Ubud</li>
+            <li>Asterisk Jewelry</li>
+            <li>Lemongrass Shop（如果前一段没逛到，可放在这里）</li>
+            <li>papiya</li>
+            <li>CHA-CHA SHOP</li>
+            <li>Toko Paras</li>
+          </ol>
+          <div class="day-note">Ubud Raw Chocolate 的 Downtown 门店位于 Jl. Gootama No.8，就在乌布中心区域，这段适合集中买巧克力、珠宝、服饰、家居和伴手礼。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Jl.%20Gootama%2C%20Ubud" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=Jl.+Gootama,+Ubud&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
         </div>
-      </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">15:00–16:00</span><span class="day-fold-title">Ubud Market 周边购物</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">从 Gootama 街区步行或短距离打车前往乌布市场周边：</div>
+          <ol class="shop-list" start="11">
+            <li>Asterisk Jewelry（如果不是同一门店，或需安排第二家分店）</li>
+            <li>Ubudahh</li>
+            <li>Matchy-matchy Accessories</li>
+            <li>ISHA Naturals Monkey Forest</li>
+          </ol>
+          <div class="day-note">边走边逛，不必每家久留。如果 Asterisk Jewelry 实际只有一家店，建议删除重复项，把时间留给其他店。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Ubud%20Market%2C%20Ubud" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=Ubud+Market,+Ubud&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">16:00–17:00</span><span class="day-fold-title">Monkey Forest 方向购物</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">最后沿着 Monkey Forest 方向购物：</div>
+          <ol class="shop-list" start="15">
+            <li>ISHA Naturals Monkey Forest</li>
+            <li>KOU BALI – Natural Soap</li>
+            <li>Filthy Gorgeous Accessories | Ubud（若前面未逛，安排在这里）</li>
+            <li>Matchy-matchy Accessories（若前面未逛，安排在这里）</li>
+          </ol>
+          <div class="day-note">Filthy Gorgeous 在 Ubud Market、Monkey Forest 和 Hanoman 一带都有门店，实际安排以当天 Google 地图显示的营业门店为准。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Monkey%20Forest%20Road%2C%20Ubud" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=Monkey+Forest+Road,+Ubud&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">17:00–17:30</span><span class="day-fold-title">前往乌布皇宫</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">购物结束后前往 Ubud Palace（乌布皇宫），建议预留至少 30 分钟交通和停车缓冲，不要把最后一家店安排得太晚。</div>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">17:30–18:15</span><span class="day-fold-title">乌布皇宫及周边</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">📍 Jl. Raya Ubud No.8, Ubud · 免费参观。如果当天购物时间超出预期，可以将乌布皇宫改成路过拍照，不建议为了赶行程压缩后面的按摩时间。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Puri%20Saren%20Ubud&query_place_id=ChIJay5BfGE90i0RME7jGwpLp4g" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5067194,115.2627222&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">18:15–19:00</span><span class="day-fold-title">前往 Putri Bali Spa</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">建议提前预约按摩，并预留交通时间。</div>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">19:00–20:30</span><span class="day-fold-title">Putri Bali Spa · 按摩</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">📍 Jl. Raya Sanggingan, Kedewatan, Ubud · 营业时间 09:00–21:00。具体结束时间取决于预约项目，建议预留约 60–90 分钟。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Putri%20Bali%20Spa&query_place_id=ChIJs1u4RjE90i0R_-qj_N57rl8" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4917721,115.2533744&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="day-fold">
+        <summary><span class="day-fold-time">20:30 之后</span><span class="day-fold-title">Twist Ubud · 晚餐</span><span class="day-fold-chevron">▸</span></summary>
+        <div class="day-fold-body">
+          <div class="day-note">📍 Jl. Raya Pengosekan, Ubud · 通常营业至 22:00。按摩结束后前往晚餐，建议提前预约，并把预订时间放在按摩结束后至少 15–30 分钟，避免交通延误导致迟到。</div>
+          <details class="map-fold">
+            <summary>🗺️ 地图</summary>
+            <div class="fold-body">
+              <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Twist%20Ubud&query_place_id=ChIJM8t_Ve890i0RuXI5pwXjFMY" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+              <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5211937,115.2628029&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </details>
+        </div>
+      </details>
     </div>
 
     <div class="day-card">
