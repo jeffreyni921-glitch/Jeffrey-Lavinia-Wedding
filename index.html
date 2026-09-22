@@ -66,6 +66,21 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 .day-stay{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--accent2);background:rgba(61,90,128,.1);border-radius:8px;padding:5px 10px;margin-bottom:10px;}
 .day-stay b{font-weight:600;color:var(--text);}
 .warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:10px 0;}
+.group-tabs{display:flex;gap:8px;margin-bottom:12px;}
+.group-tab{flex:1;text-align:center;padding:9px 4px;border-radius:10px;background:var(--card);box-shadow:var(--shadow);font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;border:none;font-family:inherit;line-height:1.35;}
+.group-tab.active{background:var(--accent);color:#fff;}
+.flight-group{display:none;}
+.flight-group.active{display:block;}
+.flight-row{background:var(--card);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow);margin-bottom:8px;}
+.fr-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.fr-no{font-weight:700;color:var(--accent);font-size:12.5px;}
+.fr-date{font-size:11px;color:var(--sub);}
+.fr-route{display:flex;align-items:center;gap:8px;}
+.fr-pt{flex:1;min-width:0;}
+.fr-pt.right{text-align:right;}
+.fr-time{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;}
+.fr-city{font-size:10.5px;color:var(--sub);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fr-arrow{color:var(--sub);font-size:13px;white-space:nowrap;}
 .footer-note{text-align:center;font-size:11px;color:var(--sub);margin-top:30px;}
 </style>
 </head>
@@ -73,8 +88,15 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 <div class="wrap">
   <h1>🌴 巴厘岛旅行手册</h1>
 
+  <!-- ===== 三组人机票（横向切换） ===== -->
+  <div class="group-tabs">
+    <button class="group-tab active" data-tab="jl">👫 Jeffrey & Lavinia</button>
+    <button class="group-tab" data-tab="jp">👴👵 Jeffrey 爸妈</button>
+    <button class="group-tab" data-tab="lp">👴👵 Lavinia 爸妈</button>
+  </div>
+
   <!-- ===== Jeffrey & Lavinia ===== -->
-  <div class="person-section">
+  <div class="flight-group active" data-group="jl">
     <div class="hero g1">
       <div class="hero-who">👫 Jeffrey & Lavinia</div>
       <div class="hero-label">此刻关注 · NEXT UP</div>
@@ -89,47 +111,43 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 
     <div class="warn">⚠️ 10/18 布里斯班转机仅 1.5 小时(VA382 08:00 到,VA45 09:30 起飞),国际转国际建议预留更充裕时间。</div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">VA382</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">06:05</div><div class="route-city">Townsville TSV</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">08:00</div><div class="route-city">Brisbane BNE</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">VA382</span><span class="fr-date">10/18 周日 · AEST(UTC+10)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">06:05</div><div class="fr-city">Townsville TSV</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">08:00</div><div class="fr-city">Brisbane BNE</div></div>
       </div>
-      <div class="tz">澳东标准时间 AEST (UTC+10)</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">VA45</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">09:30</div><div class="route-city">Brisbane BNE</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">14:05</div><div class="route-city">巴厘岛 DPS</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">VA45</span><span class="fr-date">10/18 周日 · AEST→WITA</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">09:30</div><div class="fr-city">Brisbane BNE</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">14:05</div><div class="fr-city">巴厘岛 DPS</div></div>
       </div>
-      <div class="tz">起飞 AEST(UTC+10)/ 到达 WITA(UTC+8)</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">VA48</span><span class="flight-date">10月25日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">15:00</div><div class="route-city">巴厘岛 DPS</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">22:55</div><div class="route-city">Brisbane BNE</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">VA48</span><span class="fr-date">10/25 周日 · WITA→AEST</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">15:00</div><div class="fr-city">巴厘岛 DPS</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">22:55</div><div class="fr-city">Brisbane BNE</div></div>
       </div>
-      <div class="tz">起飞 WITA(UTC+8)/ 到达 AEST(UTC+10)</div>
     </div>
     <div class="warn">🌙 10/25 晚抵达布里斯班后需在当地过夜(次日 06:10 才起飞回 Townsville),记得安排布里斯班酒店。</div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">VA383</span><span class="flight-date">10月26日 周一</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">06:10</div><div class="route-city">Brisbane BNE</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">08:15</div><div class="route-city">Townsville TSV</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">VA383</span><span class="fr-date">10/26 周一 · AEST(UTC+10)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">06:10</div><div class="fr-city">Brisbane BNE</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">08:15</div><div class="fr-city">Townsville TSV</div></div>
       </div>
-      <div class="tz">澳东标准时间 AEST (UTC+10)</div>
     </div>
   </div>
 
   <!-- ===== Jeffrey 爸妈 ===== -->
-  <div class="person-section">
+  <div class="flight-group" data-group="jp">
     <div class="hero g2">
       <div class="hero-who">👴👵 Jeffrey 爸妈(西安出发)</div>
       <div class="hero-label">此刻关注 · NEXT UP</div>
@@ -142,46 +160,42 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ3238</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">13:00</div><div class="route-city">西安 XIY</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">15:55</div><div class="route-city">广州 CAN</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ3238</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">13:00</div><div class="fr-city">西安 XIY</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">15:55</div><div class="fr-city">广州 CAN</div></div>
       </div>
-      <div class="tz">中国标准时间 CST (UTC+8)</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ625</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">18:30</div><div class="route-city">广州 CAN</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">23:40</div><div class="route-city">巴厘岛 DPS</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
       </div>
-      <div class="tz">CST(UTC+8)→ WITA(UTC+8),无时差</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ626</span><span class="flight-date">10月25日 周日 凌晨</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">00:40</div><div class="route-city">巴厘岛 DPS</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">06:00</div><div class="route-city">广州 CAN</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
       </div>
-      <div class="tz">WITA(UTC+8)→ CST(UTC+8),无时差</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ3237</span><span class="flight-date">10月25日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">09:05</div><div class="route-city">广州 CAN</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">11:40</div><div class="route-city">西安 XIY</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ3237</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">09:05</div><div class="fr-city">广州 CAN</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">11:40</div><div class="fr-city">西安 XIY</div></div>
       </div>
-      <div class="tz">中国标准时间 CST (UTC+8)</div>
     </div>
   </div>
 
   <!-- ===== Lavinia 爸妈 ===== -->
-  <div class="person-section">
+  <div class="flight-group" data-group="lp">
     <div class="hero g3">
       <div class="hero-who">👴👵 Lavinia 爸妈(哈尔滨出发)</div>
       <div class="hero-label">此刻关注 · NEXT UP</div>
@@ -194,41 +208,37 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
       </div>
     </div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ3906</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">08:40</div><div class="route-city">哈尔滨 HRB</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">13:20</div><div class="route-city">广州 CAN</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ3906</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">08:40</div><div class="fr-city">哈尔滨 HRB</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">13:20</div><div class="fr-city">广州 CAN</div></div>
       </div>
-      <div class="tz">中国标准时间 CST (UTC+8)</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ625</span><span class="flight-date">10月18日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">18:30</div><div class="route-city">广州 CAN</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">23:40</div><div class="route-city">巴厘岛 DPS</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ625</span><span class="fr-date">10/18 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">18:30</div><div class="fr-city">广州 CAN</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">23:40</div><div class="fr-city">巴厘岛 DPS</div></div>
       </div>
-      <div class="tz">CST(UTC+8)→ WITA(UTC+8),无时差</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ626</span><span class="flight-date">10月25日 周日 凌晨</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">00:40</div><div class="route-city">巴厘岛 DPS</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">06:00</div><div class="route-city">广州 CAN</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ626</span><span class="fr-date">10/25 周日凌晨 · WITA→CST</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">00:40</div><div class="fr-city">巴厘岛 DPS</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">06:00</div><div class="fr-city">广州 CAN</div></div>
       </div>
-      <div class="tz">WITA(UTC+8)→ CST(UTC+8),无时差</div>
     </div>
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">CZ3913</span><span class="flight-date">10月25日 周日</span></div>
-      <div class="route">
-        <div class="route-pt"><div class="route-time">10:35</div><div class="route-city">广州 CAN</div></div>
-        <div class="route-arrow">✈ →</div>
-        <div class="route-pt" style="text-align:right"><div class="route-time">15:00</div><div class="route-city">哈尔滨 HRB</div></div>
+    <div class="flight-row">
+      <div class="fr-top"><span class="fr-no">CZ3913</span><span class="fr-date">10/25 周日 · CST(UTC+8)</span></div>
+      <div class="fr-route">
+        <div class="fr-pt"><div class="fr-time">10:35</div><div class="fr-city">广州 CAN</div></div>
+        <div class="fr-arrow">✈→</div>
+        <div class="fr-pt right"><div class="fr-time">15:00</div><div class="fr-city">哈尔滨 HRB</div></div>
       </div>
-      <div class="tz">中国标准时间 CST (UTC+8)</div>
     </div>
   </div>
 
@@ -496,6 +506,14 @@ function tick(){
 }
 tick();
 setInterval(tick, 1000);
+
+document.querySelectorAll(".group-tab").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var tab = btn.getAttribute("data-tab");
+    document.querySelectorAll(".group-tab").forEach(function(b){ b.classList.toggle("active", b === btn); });
+    document.querySelectorAll(".flight-group").forEach(function(g){ g.classList.toggle("active", g.getAttribute("data-group") === tab); });
+  });
+});
 </script>
 </body>
 </html>
