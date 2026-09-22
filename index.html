@@ -50,6 +50,21 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
 .map-btn{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12.5px;color:var(--accent2);text-decoration:none;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:6px 12px;}
 .map-btn:active{opacity:.7;}
 .map-embed{width:100%;height:150px;border:0;border-radius:10px;margin-top:10px;display:block;}
+.section-title{font-size:18px;color:var(--text);margin-bottom:14px;}
+.day-card{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;}
+.day-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px;}
+.day-date{font-weight:700;color:var(--accent);font-size:14px;}
+.day-tag{font-size:12px;color:var(--sub);}
+.day-desc{font-size:12.5px;color:var(--sub);line-height:1.6;margin-bottom:10px;}
+.day-item{display:flex;gap:10px;padding:10px 0 2px;border-top:1px dashed var(--line);}
+.day-item:first-child{border-top:none;padding-top:0;}
+.day-time{flex:0 0 56px;font-size:12.5px;font-weight:700;color:var(--accent2);white-space:nowrap;padding-top:1px;}
+.day-body{flex:1;min-width:0;}
+.day-loc{font-weight:600;font-size:14px;}
+.day-note{font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.6;}
+.tbd{display:inline-block;font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle;}
+.day-stay{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--accent2);background:rgba(61,90,128,.1);border-radius:8px;padding:5px 10px;margin-bottom:10px;}
+.day-stay b{font-weight:600;color:var(--text);}
 .warn{background:rgba(224,122,95,.12);border-left:3px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--text);margin:10px 0;}
 .footer-note{text-align:center;font-size:11px;color:var(--sub);margin-top:30px;}
 </style>
@@ -217,52 +232,209 @@ h1{font-size:20px;text-align:center;margin:8px 0 24px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ===== 住宿 ===== -->
+  <!-- ===== 逐日行程（含每日住宿） ===== -->
   <div class="person-section">
-    <div class="group-title" style="font-size:18px;color:var(--text);margin-bottom:14px;">🏨 住宿安排</div>
+    <div class="section-title">📅 逐日行程</div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">10/18 – 10/19</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
-      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Le Méridien Bali Jimbaran</div>
-      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Bukit Permai, Jimbaran, Kec. Kuta Sel., Badung, Bali 80361<br>📞 +62 361 8466 888</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Le%20Meridien%20Bali%20Jimbaran&query_place_id=ChIJR6qrtoxE0i0RaPwIk5V3VO4" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=-8.7817801,115.1655883&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月18日 周日</span><span class="day-tag">抵达巴厘岛，休整</span></div>
+      <div class="day-item">
+        <div class="day-time">全天</div>
+        <div class="day-body">
+          <div class="day-loc">抵达巴厘岛,休整</div>
+          <div class="day-note">当天以休整为主,不安排紧凑行程。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">入住 Le Méridien Bali Jimbaran <span style="font-weight:400;color:var(--sub);font-size:12px;">· 全员 6 人</span></div>
+          <div class="day-note">📍 Jl. Bukit Permai, Jimbaran, Kec. Kuta Sel., Badung, Bali 80361 · 📞 +62 361 8466 888</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Le%20Meridien%20Bali%20Jimbaran&query_place_id=ChIJR6qrtoxE0i0RaPwIk5V3VO4" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.7817801,115.1655883&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">10/19 – 10/21</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
-      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">The Ritz-Carlton, Bali</div>
-      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Raya Nusa Dua Selatan, Benoa, Kec. Kuta Sel., Badung, Bali 80361<br>📞 +62 361 849 8988</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The%20Ritz-Carlton%20Bali&query_place_id=ChIJrUAAILlc0i0Rv7gcIT2U_LI" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=-8.8306709,115.2153312&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月19日 周一</span><span class="day-tag">试穿婚礼服装<span class="tbd">待补充</span></span></div>
+      <div class="day-item">
+        <div class="day-time">待定</div>
+        <div class="day-body">
+          <div class="day-loc">试穿婚礼服装</div>
+          <div class="day-note">按预约时间前往,确认尺寸、版型及搭配细节。具体时间和地点还没给我,记得补上,我好加地图和提醒。试装结束后返回酒店休息。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">入住 The Ritz-Carlton, Bali <span style="font-weight:400;color:var(--sub);font-size:12px;">· 全员 6 人 · 住 2 晚</span></div>
+          <div class="day-note">📍 Jl. Raya Nusa Dua Selatan, Benoa, Kec. Kuta Sel., Badung, Bali 80361 · 📞 +62 361 849 8988</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The%20Ritz-Carlton%20Bali&query_place_id=ChIJrUAAILlc0i0Rv7gcIT2U_LI" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.8306709,115.2153312&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">10/21 – 10/22</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人 · 3间房</span></div>
-      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">巴厘海滩酒店 Bali Beach Hotel(Sanur)</div>
-      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Hang Tuah, Sanur Kaja, Denpasar Selatan, Bali 80227<br>📞 +62 361 2012000</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bali%20Beach%20Hotel%20Sanur&query_place_id=ChIJX-ANbzdA0i0Riu3SFAnOZkU" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=-8.6773704,115.2635341&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月20日 周二</span><span class="day-tag">婚礼日</span></div>
+      <div class="day-stay">🏨 当晚续住 <b>The Ritz-Carlton, Bali</b></div>
+      <div class="day-item">
+        <div class="day-time">白天</div>
+        <div class="day-body">
+          <div class="day-loc">婚礼准备 & 休息</div>
+          <div class="day-note">预留充足时间进行妆造、换装及现场准备。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">19:00</div>
+        <div class="day-body">
+          <div class="day-loc">Ikan Restaurant 晚餐</div>
+          <div class="day-note">📍 The Westin Resort Nusa Dua, Bali · Kawasan Pariwisata Nusa Dua, BTDC Lot N-3</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Ikan%20Restaurant%20Westin%20Nusa%20Dua&query_place_id=ChIJBQzyNiFD0i0R8cdS_tG0NyY" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.7952156,115.2321326&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div class="warn">🚗 下一站 Novotel 实际位于 Payangan(乌布以北),距机场约 1 小时 45 分车程,并非乌布镇中心——安排乌布市区活动(市场、猴林、稻田)时通勤时间会比预期长。</div>
-
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">10/22 – 10/24</span><span class="flight-date" style="background:rgba(224,122,95,.15);padding:2px 8px;border-radius:6px;">全员 6 人</span></div>
-      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Novotel Bali Ubud Resort</div>
-      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Banjar Jl. Raya Semaon, Puhu, Payangan, Gianyar, Bali 80572<br>📞 +62 361 300 3322</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Novotel%20Bali%20Ubud%20Resort&query_place_id=ChIJQ8aFN0kj0i0RX9o0HqqhBt0" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=-8.405637,115.251365&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月21日 周三</span><span class="day-tag">悬崖公路 / 情人崖 / 滑翔伞</span></div>
+      <div class="day-item">
+        <div class="day-time">待定</div>
+        <div class="day-body">
+          <div class="day-loc">悬崖公路、情人崖、滑翔伞 <span class="tbd">船票/预约待定</span></div>
+          <div class="day-note">行程已确定,具体出发时间、游玩顺序及门票/预约信息还没定,等你补上后我再排进精确时间并加地图。滑翔伞通常需提前预约、且看当天风况,建议尽快定下时间。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">入住 巴厘海滩酒店 Bali Beach Hotel（Sanur） <span style="font-weight:400;color:var(--sub);font-size:12px;">· 全员 6 人 · 3 间房</span></div>
+          <div class="day-note">📍 Jl. Hang Tuah, Sanur Kaja, Denpasar Selatan, Bali 80227 · 📞 +62 361 2012000</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bali%20Beach%20Hotel%20Sanur&query_place_id=ChIJX-ANbzdA0i0Riu3SFAnOZkU" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.6773704,115.2635341&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div class="warn">✈️ 双方父母 10/24 白天退房后直接前往机场,搭乘当晚 CZ626(10/25 凌晨 00:40 起飞),不再入住下一晚。</div>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月22日 周四</span><span class="day-tag">佩妮达岛一日游</span></div>
+      <div class="day-item">
+        <div class="day-time">待定</div>
+        <div class="day-body">
+          <div class="day-loc">佩妮达岛（Nusa Penida）一日游 <span class="tbd">船票待定</span></div>
+          <div class="day-note">行程已确定,具体船班、码头、出发时间及返程安排还没订,补上后我帮你核对衔接是否来得及——全程通勤+船程时间较长,当天还要转场入住 Payangan 的 Novotel,时间比较紧。</div>
+        </div>
+      </div>
+      <div class="warn" style="margin:0 0 10px;">🚗 下一站 Novotel 实际位于 Payangan(乌布以北),距机场约 1 小时 45 分车程,并非乌布镇中心——安排乌布市区活动(市场、猴林、稻田)时通勤时间会比预期长。</div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">入住 Novotel Bali Ubud Resort <span style="font-weight:400;color:var(--sub);font-size:12px;">· 全员 6 人 · 住 2 晚</span></div>
+          <div class="day-note">📍 Banjar Jl. Raya Semaon, Puhu, Payangan, Gianyar, Bali 80572 · 📞 +62 361 300 3322</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Novotel%20Bali%20Ubud%20Resort&query_place_id=ChIJQ8aFN0kj0i0RX9o0HqqhBt0" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.405637,115.251365&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
 
-    <div class="flight-card">
-      <div class="flight-top"><span class="flight-no">10/24 – 10/25</span><span class="flight-date" style="background:rgba(61,90,128,.15);padding:2px 8px;border-radius:6px;">仅 Jeffrey & Lavinia</span></div>
-      <div style="font-weight:600;font-size:15px;margin:4px 0 6px;">Fairfield by Marriott Bali Kuta Sunset Road</div>
-      <div class="tz" style="border-top:none;padding-top:0;margin-top:0;">📍 Jl. Merdeka Raya No.VII, Abianbase, Kec. Kuta, Badung, Bali 80361<br>📞 +62 361 2099 100</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Fairfield%20by%20Marriott%20Bali%20Kuta%20Sunset%20Road&query_place_id=ChIJ7WLIJPyF0S0RkTIAUhMOAus" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=-8.71585,115.1841778&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月23日 周五</span><span class="day-tag">ATV · 乌布市区 · 按摩 · 晚餐</span></div>
+      <div class="day-stay">🏨 当晚续住 <b>Novotel Bali Ubud Resort</b>（Payangan）</div>
+      <div class="warn" style="margin:0 0 10px;">🚗 这一天要在 Payangan（ATV）→ 乌布中心（午餐、皇宫）→ Kedewatan（按摩）→ Pengosekan（晚餐）之间来回跑,虽然都在乌布大区、单程多在 15–30 分钟内,但一天串联 5 个点,建议全天包车,预留路上和堵车的余量。</div>
+      <div class="day-item">
+        <div class="day-time">08:30</div>
+        <div class="day-body">
+          <div class="day-loc">Kuber ATV 越野车</div>
+          <div class="day-note">📍 Payangan 一带,活动约 90 分钟,连同往返交通预计 11:00 左右回酒店。</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kuber%20ATV%20Adventure&query_place_id=ChIJvxcpJPoi0i0R7kEHdh7kyLw" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4512625,115.246112&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">午餐</div>
+        <div class="day-body">
+          <div class="day-loc">Pison Ubud</div>
+          <div class="day-note">📍 Jl. Hanoman No.10X, Ubud · 营业时间 07:00–23:00</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Pison%20Ubud&query_place_id=ChIJZQyFIXo90i0RqjajNVKKz4U" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5182581,115.2636643&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">下午</div>
+        <div class="day-body">
+          <div class="day-loc">乌布皇宫（Puri Saren Ubud）逛街购物</div>
+          <div class="day-note">📍 Jl. Raya Ubud No.8, Ubud · 免费参观</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Puri%20Saren%20Ubud&query_place_id=ChIJay5BfGE90i0RME7jGwpLp4g" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5067194,115.2627222&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">下午</div>
+        <div class="day-body">
+          <div class="day-loc">Putri Bali Spa 按摩</div>
+          <div class="day-note">📍 Jl. Raya Sanggingan, Kedewatan, Ubud · 营业时间 09:00–21:00</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Putri%20Bali%20Spa&query_place_id=ChIJs1u4RjE90i0R_-qj_N57rl8" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.4917721,115.2533744&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">晚餐</div>
+        <div class="day-body">
+          <div class="day-loc">Twist Ubud</div>
+          <div class="day-note">📍 Jl. Raya Pengosekan, Ubud · 通常营业至 22:00</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Twist%20Ubud&query_place_id=ChIJM8t_Ve890i0RuXI5pwXjFMY" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.5211937,115.2628029&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月24日 周六</span><span class="day-tag">分组活动</span></div>
+      <div class="warn" style="margin:0 0 10px;">⚠️ 当天 Jeffrey 潜水结束后要从图蓝本（东北海岸）直接转场到 Kuta 的 Fairfield（车程约 2.5–3 小时,加上单趟去程约 2–2.5 小时）,一天里潜水 + 两趟长途车程,时间和体力都比较紧,建议向潜店确认几点能结束、是否包含接送,并把退房时间和行李安排提前定好。</div>
+      <div class="warn" style="margin:0 0 10px;">✈️ 双方父母当天白天退房后直接前往机场,搭乘当晚 CZ626(10/25 凌晨 00:40 起飞),不再入住下一晚。</div>
+      <div class="day-item">
+        <div class="day-time">06:30</div>
+        <div class="day-body">
+          <div class="day-loc">Jeffrey · 图蓝本潜水（Secret Garden）</div>
+          <div class="day-note">当天两次免减压潜水,结束后返回;具体潜点范围以潜店当天安排为准,地图标注为图蓝本潜水区域中心位置,仅供参考。📍 Tulamben, Karangasem</div>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.2925,115.5975&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">全天</div>
+        <div class="day-body">
+          <div class="day-loc">其他人员 · 自由活动</div>
+          <div class="day-note">睡到自然醒,随后前往商圈逛街购物,当天以轻松自由活动为主。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">入住 Fairfield by Marriott Bali Kuta Sunset Road <span style="font-weight:400;color:var(--sub);font-size:12px;">· 仅 Jeffrey & Lavinia</span></div>
+          <div class="day-note">📍 Jl. Merdeka Raya No.VII, Abianbase, Kec. Kuta, Badung, Bali 80361 · 📞 +62 361 2099 100</div>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Fairfield%20by%20Marriott%20Bali%20Kuta%20Sunset%20Road&query_place_id=ChIJ7WLIJPyF0S0RkTIAUhMOAus" target="_blank" rel="noopener">🗺️ 在地图中打开导航</a>
+          <iframe class="map-embed" src="https://www.google.com/maps?q=-8.71585,115.1841778&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-head"><span class="day-date">10月25日 周日</span><span class="day-tag">自由活动 · 返程</span></div>
+      <div class="day-item">
+        <div class="day-time">全天</div>
+        <div class="day-body">
+          <div class="day-loc">Jeffrey & Lavinia · 自由活动</div>
+          <div class="day-note">可根据体力、天气和返程安排灵活安排,建议以轻松活动为主,并预留充足时间处理退房、行李,15:00 DPS 起飞前留好去机场的时间。</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">🏨</div>
+        <div class="day-body">
+          <div class="day-loc">当晚 Brisbane 过夜酒店 <span class="tbd">待补充</span></div>
+          <div class="day-note">22:55 抵达 Brisbane 后需在当地过夜(次日 06:10 才起飞回 Townsville),酒店订单还没发给我,发我后补上地址和地图。</div>
+        </div>
+      </div>
     </div>
   </div>
 
